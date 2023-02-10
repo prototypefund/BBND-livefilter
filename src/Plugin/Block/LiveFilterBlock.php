@@ -22,10 +22,11 @@ class LiveFilterBlock extends BlockBase {
   public function build() {
     return [
       '#theme' => 'livefilter',
-      '#container_selector' => $this->configuration['container_selector'],
+      '#elements_selector' => $this->configuration['elements_selector'],
       '#text_selector' => $this->configuration['text_selector'],
       '#placeholder' => $this->configuration['placeholder'],
       '#size' => $this->configuration['size'],
+      '#min_input' => $this->configuration['min_input'],
     ];
   }
 
@@ -34,10 +35,11 @@ class LiveFilterBlock extends BlockBase {
    */
   public function defaultConfiguration() {
     return [
-      'container_selector' => '',
+      'elements_selector' => '',
       'text_selector' => '',
       'placeholder' => '',
       'size' => '',
+      'min_input' => 1,
     ];
   }
 
@@ -46,11 +48,11 @@ class LiveFilterBlock extends BlockBase {
    */
   public function blockForm($form, FormStateInterface $form_state) {
 
-    $form['container_selector'] = [
+    $form['elements_selector'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Container selector'),
-      '#description' => $this->t('The css selector to find the container, the children of which are the elements to filter.'),
-      '#default_value' => $this->configuration['container_selector'],
+      '#title' => $this->t('Elements selector'),
+      '#description' => $this->t('The css selector to find the elements to filter.'),
+      '#default_value' => $this->configuration['elements_selector'],
       '#required' => TRUE,
     ];
 
@@ -75,6 +77,13 @@ class LiveFilterBlock extends BlockBase {
       '#default_value' => $this->configuration['size'],
     ];
 
+    $form['min_input'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Minimum input length'),
+      '#description' => $this->t('The input length needed to start filtering.'),
+      '#default_value' => $this->configuration['min_input'],
+    ];
+
     return $form;
   }
 
@@ -82,10 +91,11 @@ class LiveFilterBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['container_selector'] = $form_state->getValue('container_selector');
+    $this->configuration['elements_selector'] = $form_state->getValue('elements_selector');
     $this->configuration['text_selector'] = $form_state->getValue('text_selector');
     $this->configuration['placeholder'] = $form_state->getValue('placeholder');
     $this->configuration['size'] = $form_state->getValue('size');
+    $this->configuration['min_input'] = $form_state->getValue('min_input');
   }
 
 }

@@ -5,8 +5,9 @@
   .setAttribute('autocomplete', 'off')
   .setAttribute('size', size)
   .setAttribute('placeholder', placeholder)
-  .setAttribute('data-container-selector', container_selector)
+  .setAttribute('data-elements-selector', elements_selector)
   .setAttribute('data-text-selector', text_selector)
+  .setAttribute('data-min-input', min_input)
 %}
 <input{{ attributes }}>
 {{ attach_library('livefilter/livefilter') }}
