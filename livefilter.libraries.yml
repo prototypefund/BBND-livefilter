@@ -1,0 +1,6 @@
+livefilter:
+  css:
+    theme:
+      css/livefilter.css: {}
+  js:
+    js/livefilter.js: {}

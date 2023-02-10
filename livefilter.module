@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file Live filter
+ */
+
+function livefilter_theme($existing, $type, $theme, $path) {
+  return [
+    'livefilter' => [
+      'variables' => [
+        'container_selector' => NULL,
+        'text_selector' => NULL,
+        'placeholder' => NULL,
+        'size' => NULL,
+      ],
+    ],
+  ];
+}

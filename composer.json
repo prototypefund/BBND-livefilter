@@ -1,0 +1,18 @@
+{
+    "name": "drupal/livefilter",
+    "type": "drupal-module",
+    "autoload": {
+        "psr-4": {
+            "Drupal\\livefilter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Merlin",
+            "email": "merlin@geeks4change.net"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0"
+    }
+}

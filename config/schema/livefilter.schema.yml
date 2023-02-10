@@ -1,0 +1,16 @@
+block.settings.livefilter:
+  type: block_settings
+  label: 'Live filter'
+  mapping:
+    container_selector:
+      type: string
+      label: 'Container selector'
+    text_selector:
+      type: string
+      label: 'Text selector'
+    placeholder:
+      type: label
+      label: 'Placeholder'
+    size:
+      type: integer
+      label: 'size'

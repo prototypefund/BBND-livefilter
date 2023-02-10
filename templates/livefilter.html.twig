@@ -1,0 +1,12 @@
+{%
+  set attributes = create_attribute()
+  .addClass('livefilter-value')
+  .setAttribute('type', 'search')
+  .setAttribute('autocomplete', 'off')
+  .setAttribute('size', size)
+  .setAttribute('placeholder', placeholder)
+  .setAttribute('data-container-selector', container_selector)
+  .setAttribute('data-text-selector', text_selector)
+%}
+<input{{ attributes }}>
+{{ attach_library('livefilter/livefilter') }}
